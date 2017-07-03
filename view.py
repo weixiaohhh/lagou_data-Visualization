@@ -121,7 +121,7 @@ def get_workyear_about_salary_info(name):
                    ))
     chart.use(Legend(['1-5K', '6-10K', '11-15K', '16-20K', '21-25K', '大于30K', '平均收入(K)']))
     chart.use(Axis('category', 'bottom',data=['1年以下', '1-3年', '3-5年', '5-10年', '不限']))
-    chart.use(Axis('value', 'left',name='count', max=300, min=0, boundaryGap=[0.2, 0.2]))
+    chart.use(Axis('value', 'left',name='count', max=700, min=0, boundaryGap=[0.2, 0.2]))
     chart.use(Axis('value', 'right',name='收入', max=40, min=0, boundaryGap=[0.2, 0.2]))
     return chart.json
 
