@@ -6,8 +6,9 @@
 ```git clone https://github.com/weixiaohhh/lagou_data-Visualization/```
 ### Prerequisites and Installing
 
-运行环境: Python 3 
-数据库: MongoDb [官网]('https://www.mongodb.com/download-center')
+- 运行环境: Python 3 
+
+- 数据库: MongoDb [官网](https://www.mongodb.com/download-center)
 
 ```
 pip install requirements.txt
