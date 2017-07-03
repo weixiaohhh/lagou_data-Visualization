@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+     <script src='https://cdn.bootcss.com/echarts/3.6.2/echarts.js'  charset="UTF-8"></script>
+     	<script src="https://cdn.bootcss.com/wordcloud2.js/1.0.6/wordcloud2.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/core.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="echart_data1" style="width: 800px;height:400px;"></div>
+    <div id="echart_data2"  style="width: auto;height:400px;"></div>
+    
+    <!-- 为wordcloud准备一个具备大小（宽高）的Dom -->
+    <canvas id="word_cloud" class="word_cloud" width="1024" height="1024"></canvas>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化城市职位数量echarts实例
+        // 参考文档  https://github.com/yufeiminds/echarts-python
+        
+        var myChart1 = echarts.init(document.getElementById('echart_data1'))
+        var option1 = {{echart_data1|safe}}
+        myChart1.setOption(option1);
+        
+        // 基于准备好的dom，初始化薪资与资历echarts实例
+        var myChart2 = echarts.init(document.getElementById('echart_data2'))
+        var option2 = {{echart_data2|safe}}
+        myChart2.setOption(option2);
+    
+        // 基于准备好的dom，初始化wordcloud实例
+        // 参考文档  https://github.com/timdream/wordcloud2.js
+        
+    	db = {{wordcloud_data|safe}}
+		list = [];
+		for (var i in db) {
+		  list.push([i, db[i]])
+		};
+		
+
+
+		WordCloud(document.getElementById('word_cloud'), 
+		{ list: list,
+		  fontFamily: 'Times, serif',
+
+		  rotateRatio: 0.5,
+		  rotationSteps: 2,
+
+		} );
+    </script>
+</body>
+</html>
