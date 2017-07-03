@@ -34,7 +34,7 @@
     	db = {{wordcloud_data|safe}}
 		list = [];
 		for (var i in db) {
-		  list.push([i, db[i]])
+		  list.push([i, Number(db[i])/10])
 		};
 		
 
